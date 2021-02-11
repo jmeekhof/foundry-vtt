@@ -83,3 +83,10 @@ sudo ln -s /etc/nginx/sites-available/foundryvtt /etc/nginx/sites-enabled/foundr
 sudo rm /etc/nginx/sites-enabled/default
 sudo systemctl enable nginx
 sudo systemctl start nginx
+
+# Let's encrypt
+sudo snap install core
+sudo snap refresh core
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo certbot --nginx -n --agree-tos -m ${email} --domains ${host}

@@ -17,7 +17,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-????????"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
   }
 
   filter {
@@ -37,6 +37,7 @@ resource "aws_instance" "foundry" {
       device = var.MOUNT_DEVICE
       port   = var.PORT
       host   = var.HOSTNAME
+      email  = var.CERT_EMAIL
     }
   )
   security_groups   = [aws_security_group.http-https-traffic.name]
