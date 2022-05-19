@@ -1,5 +1,5 @@
 resource "aws_security_group" "http-https-traffic" {
-  name        = "http-https-traffic"
+  name        = "http-https-traffic-vtt"
   description = "Allows http, https, and ssh access"
 
   ingress {

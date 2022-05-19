@@ -3,5 +3,5 @@ resource "aws_route53_record" "foundry" {
   name    = "foundry.${data.aws_route53_zone.selected.name}"
   type    = "CNAME"
   ttl     = 300
-  records = [aws_instance.foundry.public_dns]
+  records = [aws_instance.foundry_instance.public_dns]
 }
