@@ -1,31 +1,46 @@
-variable "region" {
-  default = "us-east-1"
+variable "REGION" {
+  type        = string
+  description = "The default zone to use"
 }
 
 variable "PATH_TO_PRIVATE_KEY" {
-  default = "~/.ssh/foundry-vtt.pem"
+  type        = string
+  description = "Path to the private key"
 }
 
 variable "PATH_TO_PUBLIC_KEY" {
-  default = "~/.ssh/foundry-vtt.pub"
+  type        = string
+  description = "Path to the public key"
 }
 
 variable "MOUNT_DEVICE" {
-  default = "/dev/xvdh"
+  type        = string
+  description = "The location that the EBS device is located on the file system"
+  default     = "/dev/xvdh"
 }
 
 variable "HOSTNAME" {
-  default = "foundry.twotheleft.com"
+  type        = string
+  description = "The desired DNS name for the instance"
 }
 
 variable "ZONE" {
-  default = "twotheleft.com."
+  type        = string
+  description = "The DNS zone that the HOSTNAME will use"
 }
 
 variable "PORT" {
+  type    = string
   default = "8080"
 }
 
 variable "CERT_EMAIL" {
-  default = "jmeekhof@twotheleft.com"
+  type        = string
+  description = "The email address to use when negotiating the SSL cert"
+}
+
+variable "PROFILE" {
+  type        = string
+  description = "The aws profile to use"
+  default     = "default"
 }
