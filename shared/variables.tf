@@ -44,3 +44,8 @@ variable "PROFILE" {
   description = "The aws profile to use"
   default     = "default"
 }
+
+variable "SNAP_ID" {
+  type        = string
+  description = "The snapshot id to use to restore the application volume"
+}
