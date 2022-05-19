@@ -1,19 +1,3 @@
-data "aws_ami" "ubuntu" {
-  most_recent = true
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-  }
-
-  filter {
-    name   = "state"
-    values = ["available"]
-  }
-
-  owners = ["099720109477"]
-}
-
 resource "aws_instance" "foundry" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
@@ -36,7 +20,7 @@ resource "aws_instance" "foundry" {
 resource "aws_ebs_volume" "foundry_software" {
   size              = 4
   type              = "gp2"
-  availability_zone = "${var.region}a"
+  availability_zone = "${var.REGION}a"
 
   tags = {
     Name = "Foundry-VTT"
