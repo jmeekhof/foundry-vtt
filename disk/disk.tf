@@ -5,6 +5,6 @@ resource "aws_ebs_volume" "foundry_volume" {
   snapshot_id       = var.SNAP_ID
 
   tags = {
-    Name = "Foundry-VTT"
+    purpose = "foundry"
   }
 }
